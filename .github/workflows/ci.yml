@@ -1,0 +1,39 @@
+# Checks every push to main and every pull request: core's theme.json schema accepts every style variation,
+# the theme header has what WordPress needs, and the release zip builds. Playwright runs locally only (it needs a
+# WordPress network). A green tick on the commit before tagging a release.
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  theme:
+    name: Theme files and zip
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: '24'
+      - name: Style variations against core's theme.json schema
+        run: |
+          curl -sSfL -o /tmp/schema.json https://schemas.wp.org/trunk/theme.json
+          npx --yes -p ajv-cli@5.0.0 -p ajv-formats@3.0.1 ajv validate --spec=draft7 --strict=false -c ajv-formats -s /tmp/schema.json -d 'styles/*.json'
+      - name: Theme header
+        run: |
+          for field in 'Theme Name' 'Template' 'Version' 'Requires at least' 'Requires PHP' 'Text Domain' 'Update URI'; do
+            grep -q "^$field: ." style.css || { echo "::error::style.css has no $field header."; exit 1; }
+          done
+          grep -q '^Template: ipsum$' style.css
+      - name: Build the zip
+        run: bash bin/build-zip.sh

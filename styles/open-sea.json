@@ -1,0 +1,46 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 3,
+	"title": "Open Sea",
+	"settings": {
+		"color": {
+			"palette": [
+				{ "color": "#f6f9fb", "name": "Foam", "slug": "base" },
+				{ "color": "#12263a", "name": "Deep water", "slug": "contrast" },
+				{ "color": "#0b6e78", "name": "Teal", "slug": "accent-1" },
+				{ "color": "#0a2540", "name": "Night sea", "slug": "accent-3" },
+				{ "color": "#e3eef3", "name": "Mist", "slug": "accent-5" },
+				{ "color": "#12263a33", "name": "Line", "slug": "accent-6" }
+			]
+		}
+	},
+	"styles": {
+		"typography": {
+			"fontFamily": "var:preset|font-family|inter"
+		},
+		"elements": {
+			"heading": {
+				"typography": {
+					"fontFamily": "var:preset|font-family|archivo",
+					"fontWeight": "600"
+				}
+			},
+			"link": {
+				":hover": { "color": { "text": "var:preset|color|accent-1" } }
+			},
+			"button": {
+				"border": { "radius": "6px" },
+				"color": {
+					"background": "var:preset|color|accent-3",
+					"text": "var:preset|color|base"
+				},
+				":hover": {
+					"color": {
+						"background": "var:preset|color|accent-1",
+						"text": "var:preset|color|base"
+					}
+				}
+			}
+		}
+	}
+}
