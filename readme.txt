@@ -1,5 +1,5 @@
 === Windrose Prow for Ipsum ===
-Contributors: patriciabt
+Contributors: patricia70
 Requires at least: 7.2
 Tested up to: 7.2
 Requires PHP: 8.4
@@ -18,6 +18,18 @@ Variation: Open Sea (deep water blue on foam white, a teal accent; Archivo headi
 Choosing a variation copies its values into the site's saved styles: a later change to a variation reaches a site when the variation is chosen again.
 
 Windrose Prow for Ipsum works on a single site or a network, with or without the Windrose plugins. Style variations made or imported on a site, without changing the theme's files, come with Windrose Livery, a separate plugin.
+
+Windrose Prow for Ipsum is part of the Windrose Suite, a free set of plugins and themes for WordPress networks: https://www.webpresencecare.com/windrose/ . Each Windrose plugin and theme works on its own.
+
+Source code, issues and build steps: https://github.com/webpresencecare/windrose-prow-ipsum
+
+Security: please report vulnerabilities privately through GitHub: https://github.com/webpresencecare/windrose-prow-ipsum/security/advisories/new . Never in a public support thread.
+
+== Frequently Asked Questions ==
+
+= Is this theme written with AI? =
+
+Yes. I write the Windrose plugins and themes with Claude Code, Anthropic's AI coding assistant: I design each feature, test it on real sites and review every release, and every commit written with Claude says so. Independent reviews are welcome on GitHub.
 
 == Changelog ==
 
